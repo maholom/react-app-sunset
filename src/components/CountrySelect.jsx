@@ -1,20 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Select from 'react-select';
-import { options, allCountriesArray } from '../utils';
+import { options } from '../data';
 
-export const CountrySelect = () => {
-  const [selectedCountry, setSelectedCountry] = useState({});
-
+export const CountrySelect = ({ selectedCountry, setSelectedCountry }) => {
   const changeHandler = (selectedCountry) => {
     setSelectedCountry(selectedCountry);
   };
-
-  const { value } = selectedCountry;
-
-  const selectedCountryObject = allCountriesArray.filter((country) => {
-    return country.isoCode === value;
-  });
-  console.log(selectedCountryObject);
 
   return (
     <Select
