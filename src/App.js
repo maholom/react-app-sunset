@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 import { Calendar } from './components/Calendar.jsx';
 import { CountrySelect } from './components/CountrySelect';
-import { allCountriesArray } from './data.js';
 import './index.css';
+import { useAxios } from './hooks/useAxios.js';
 
 export const App = () => {
   const [selectedCountry, setSelectedCountry] = useState({});
   const [dateString, setDateString] = useState('');
 
-  const { value } = selectedCountry;
-
-  const selectedCountryObj = allCountriesArray.filter((country) => {
-    return country.isoCode === value;
-  });
+  const { data, loading } = useAxios(selectedCountry, dateString);
 
   return (
     <div className="App">
+      <div>{data.results.day_length}</div>
       <Calendar dateString={dateString} setDateString={setDateString} />
       <CountrySelect
         selectedCountry={selectedCountry}
         setSelectedCountry={setSelectedCountry}
       />
+      <div>Attribution</div>
     </div>
   );
 };

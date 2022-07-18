@@ -3,8 +3,11 @@ import 'antd/dist/antd.min.css';
 import { DatePicker, Space } from 'antd';
 import moment from 'moment';
 
-export const Calendar = ({ dateSting, setDateString }) => {
-  const onChange = (dateString) => {};
+export const Calendar = ({ dateString, setDateString }) => {
+  const onChange = (dateString) => {
+    setDateString(dateString);
+    console.log(dateString);
+  };
 
   const disabledDates = (current) =>
     current.isAfter(moment().subtract(1, 'day'));
