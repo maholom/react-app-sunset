@@ -28,9 +28,5 @@ export const useAxios = (selectedCountry, dateString) => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, [dateString, selectedCountry]);
-
-  return { data, loading };
+  return { data, loading, fetchData };
 };
