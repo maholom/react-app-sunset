@@ -12,6 +12,8 @@ export const App = () => {
 
   const { data, loading, fetchData } = useAxios(selectedCountry, dateString);
 
+  const { value } = selectedCountry;
+
   return (
     <div className="App">
       <Calendar dateString={dateString} setDateString={setDateString} />
@@ -19,12 +21,10 @@ export const App = () => {
         selectedCountry={selectedCountry}
         setSelectedCountry={setSelectedCountry}
       />
-      <Button
-        onClick={() => fetchData()}
-        disabled={!dateString || !selectedCountry}
-      >
+      <Button onClick={() => fetchData()} disabled={!dateString || !value}>
         Zmáčni
       </Button>
+      {data ? <div>{data.results.sunset}</div> : ''}
       <div>Attribution</div>
     </div>
   );
