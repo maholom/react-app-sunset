@@ -8,20 +8,21 @@ import { Button } from 'antd';
 
 export const App = () => {
   const [selectedCountry, setSelectedCountry] = useState({});
-  const [dateString, setDateString] = useState('');
+  const [selectedDate, setSelectedDate] = useState('');
 
-  const { data, loading, fetchData } = useAxios(selectedCountry, dateString);
+  const { data, loading, fetchData } = useAxios(selectedCountry, selectedDate);
 
   const { value } = selectedCountry;
 
   return (
     <div className="App">
-      <Calendar dateString={dateString} setDateString={setDateString} />
+      <div>React</div>
+      <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
       <CountrySelect
         selectedCountry={selectedCountry}
         setSelectedCountry={setSelectedCountry}
       />
-      <Button onClick={() => fetchData()} disabled={!dateString || !value}>
+      <Button onClick={() => fetchData()} disabled={!selectedDate || !value}>
         Zmáčni
       </Button>
       {data ? <div>{data.results.sunset}</div> : ''}

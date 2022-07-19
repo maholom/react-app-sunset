@@ -3,10 +3,10 @@ import 'antd/dist/antd.min.css';
 import { DatePicker, Space } from 'antd';
 import moment from 'moment';
 
-export const Calendar = ({ dateString, setDateString }) => {
-  const onChange = (dateString) => {
-    setDateString(dateString);
-    console.log(dateString);
+export const Calendar = ({ selectedDate, setSelectedDate }) => {
+  const onChange = (selectedDate) => {
+    setSelectedDate(selectedDate);
+    console.log(selectedDate);
   };
 
   const disabledDates = (current) =>

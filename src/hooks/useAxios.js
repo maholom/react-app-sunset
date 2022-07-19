@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { allCountriesArray } from '../data';
 
-export const useAxios = (selectedCountry, dateString) => {
+export const useAxios = (selectedCountry, selectedDate) => {
   const { value } = selectedCountry;
 
   const selectedCountryData = allCountriesArray.filter((country) => {
@@ -11,7 +11,7 @@ export const useAxios = (selectedCountry, dateString) => {
   const latitude = selectedCountryData.map((obj) => obj.latitude).toString();
   const longitude = selectedCountryData.map((obj) => obj.longitude).toString();
 
-  const baseURL = `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=${dateString}&formatted=1`;
+  const baseURL = `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=${selectedDate}&formatted=1`;
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
