@@ -112,10 +112,7 @@ export const App = () => {
             >
               {' '}
               Attributions: {''}
-              <a
-                href="https://https://sunrise-sunset.org/api"
-                title="sunset api"
-              >
+              <a href="https://sunrise-sunset.org/api" title="sunset api">
                 Sunset and sunrise times API
               </a>
               <span> & </span>
