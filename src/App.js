@@ -9,11 +9,10 @@ import sun from './icons/sun.png';
 import moon from './icons/moon.png';
 
 export const App = () => {
-  const [selectedCountry, setSelectedCountry] = useState({});
+  const [selectedCountry, setSelectedCountry] = useState('');
   const [selectedDate, setSelectedDate] = useState('');
 
   const { data, loading, fetchData } = useAxios(selectedCountry, selectedDate);
-  const { value } = selectedCountry;
   const { Title } = Typography;
   const { Paragraph } = Typography;
 
@@ -43,7 +42,7 @@ export const App = () => {
           <Button
             style={{ marginTop: '32px' }}
             onClick={() => fetchData()}
-            disabled={!selectedDate || !value}
+            disabled={!selectedDate || !selectedCountry}
           >
             <img
               src={sun}
@@ -59,7 +58,7 @@ export const App = () => {
         </Col>
       </Row>
       {loading ? (
-        <Row Row justify="center" style={{ marginTop: '24px' }}>
+        <Row justify="center" style={{ marginTop: '24px' }}>
           <Spin size="large" />
         </Row>
       ) : (
@@ -68,16 +67,18 @@ export const App = () => {
 
       {data ? (
         <>
-          <hr
-            style={{
-              background: 'black',
-              color: 'black',
-              borderColor: 'black',
-              height: '0.3px',
-              maxWidth: '500px',
-              marginTop: '36px',
-            }}
-          />
+          <Row>
+            <hr
+              style={{
+                background: 'grey',
+                color: 'grey',
+                borderColor: 'grey',
+                height: '0.3px',
+                maxWidth: '500px',
+                marginTop: '36px',
+              }}
+            />
+          </Row>
 
           <Row justify="space-around">
             <Title level={4} style={{ color: '#140c53', marginTop: '48px' }}>

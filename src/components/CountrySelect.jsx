@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from 'react-select';
+import { Select } from 'antd';
 import { options } from '../countryData';
 
 export const CountrySelect = ({ selectedCountry, setSelectedCountry }) => {
@@ -9,10 +9,12 @@ export const CountrySelect = ({ selectedCountry, setSelectedCountry }) => {
 
   return (
     <Select
+      style={{ width: '100%' }}
       options={options}
-      value={selectedCountry}
+      value={selectedCountry || undefined}
       onChange={changeHandler}
-      placeholder={'Select country'}
+      placeholder="Select a country"
+      size={'large'}
     ></Select>
   );
 };
