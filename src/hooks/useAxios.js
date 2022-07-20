@@ -3,10 +3,8 @@ import axios from 'axios';
 import { allCountriesArray } from '../countryData';
 
 export const useAxios = (selectedCountry, selectedDate) => {
-  const { value } = selectedCountry;
-
   const selectedCountryData = allCountriesArray.filter((country) => {
-    return country.isoCode === value;
+    return country.isoCode === selectedCountry;
   });
   const latitude = selectedCountryData.map((obj) => obj.latitude).toString();
   const longitude = selectedCountryData.map((obj) => obj.longitude).toString();

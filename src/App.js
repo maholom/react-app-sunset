@@ -18,12 +18,20 @@ export const App = () => {
 
   return (
     <>
-      <Row gutter={[16, 24]} justify="space-around">
-        <Title level={3} style={{ color: '#140c53', margin: '16px' }}>
+      <Row
+        gutter={[16, 24]}
+        justify="space-around"
+        style={{ marginTop: '32px', marginBottom: '32px' }}
+      >
+        <Title level={3} style={{ color: '#140c53' }}>
           React sunset sunrise app
         </Title>
       </Row>
-      <Row gutter={[16, 24]} justify="space-around">
+      <Row
+        gutter={[16, 24]}
+        justify="space-between"
+        style={{ marginRight: '8px', marginLeft: '8px' }}
+      >
         <Col xs={{ span: 24 }} lg={{ span: 12 }}>
           <Calendar
             selectedDate={selectedDate}
@@ -58,7 +66,7 @@ export const App = () => {
         </Col>
       </Row>
       {loading ? (
-        <Row justify="center" style={{ marginTop: '24px' }}>
+        <Row justify="center" style={{ marginTop: '48px' }}>
           <Spin size="large" />
         </Row>
       ) : (
@@ -67,19 +75,16 @@ export const App = () => {
 
       {data ? (
         <>
-          <Row>
-            <hr
-              style={{
-                background: 'grey',
-                color: 'grey',
-                borderColor: 'grey',
-                height: '0.3px',
-                maxWidth: '500px',
-                marginTop: '36px',
-              }}
-            />
-          </Row>
-
+          <hr
+            style={{
+              background: 'grey',
+              color: 'grey',
+              borderColor: 'grey',
+              height: '0.3px',
+              maxWidth: '500px',
+              marginTop: '36px',
+            }}
+          />
           <Row justify="space-around">
             <Title level={4} style={{ color: '#140c53', marginTop: '48px' }}>
               <img
@@ -105,6 +110,7 @@ export const App = () => {
               level={1}
               style={{ marginTop: '86px', marginLeft: '16px' }}
             >
+              {' '}
               Attributions: {''}
               <a
                 href="https://https://sunrise-sunset.org/api"
