@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { allCountriesArray } from '../data';
+import { allCountriesArray } from '../countryData';
 
 export const useAxios = (selectedCountry, selectedDate) => {
   const { value } = selectedCountry;

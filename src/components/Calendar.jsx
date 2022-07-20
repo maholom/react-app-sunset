@@ -6,11 +6,12 @@ import moment from 'moment';
 export const Calendar = ({ selectedDate, setSelectedDate }) => {
   const onChange = (selectedDate) => {
     setSelectedDate(selectedDate);
-    console.log(selectedDate);
   };
 
   const disabledDates = (current) =>
     current.isAfter(moment().subtract(1, 'day'));
+
+  const dateFormat = 'DD/MM/YYYY';
 
   return (
     <Space
@@ -26,6 +27,7 @@ export const Calendar = ({ selectedDate, setSelectedDate }) => {
         }}
         onChange={onChange}
         disabledDate={disabledDates}
+        format={dateFormat}
       />
     </Space>
   );
