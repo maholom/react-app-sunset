@@ -19,28 +19,29 @@ export const App = () => {
 
   return (
     <>
-      <Row gutter={[16, 24]} justify="space-around" style={{ margin: '16px' }}>
+      <Row gutter={[16, 24]} justify="space-around">
         <Title level={3} style={{ color: '#140c53', margin: '16px' }}>
           React sunset sunrise app
         </Title>
       </Row>
-      <Row justify="space-around" style={{ margin: '16px' }}>
-        <Col xs={{ span: 24 }} md={{ span: 12 }}>
+      <Row gutter={[16, 24]} justify="space-around">
+        <Col xs={{ span: 24 }} lg={{ span: 12 }}>
           <Calendar
             selectedDate={selectedDate}
             setSelectedDate={setSelectedDate}
           />
         </Col>
-        <Col xs={{ span: 24 }} md={{ span: 12 }} style={{ margin: '16px' }}>
+        <Col xs={{ span: 24 }} lg={{ span: 12 }}>
           <CountrySelect
             selectedCountry={selectedCountry}
             setSelectedCountry={setSelectedCountry}
           />
         </Col>
       </Row>
-      <Row gutter={[16, 24]} justify="center" style={{ margin: '16px' }}>
+      <Row justify="center">
         <Col>
           <Button
+            style={{ marginTop: '32px' }}
             onClick={() => fetchData()}
             disabled={!selectedDate || !value}
           >
@@ -73,7 +74,7 @@ export const App = () => {
               color: 'black',
               borderColor: 'black',
               height: '0.3px',
-              width: '500px',
+              maxWidth: '500px',
               marginTop: '36px',
             }}
           />
@@ -98,10 +99,10 @@ export const App = () => {
               Sunset is at {data.results.sunset}
             </Title>
           </Row>
-          <Row gutter={[16, 48]}>
+          <Row>
             <Paragraph
               level={1}
-              style={{ marginTop: '36px', marginLeft: '16px' }}
+              style={{ marginTop: '86px', marginLeft: '16px' }}
             >
               Attributions: {''}
               <a
