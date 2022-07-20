@@ -13,8 +13,20 @@ export const Calendar = ({ selectedDate, setSelectedDate }) => {
     current.isAfter(moment().subtract(1, 'day'));
 
   return (
-    <Space direction="vertical">
-      <DatePicker onChange={onChange} disabledDate={disabledDates} />
+    <Space
+      direction="vertical"
+      style={{
+        width: '100%',
+      }}
+    >
+      <DatePicker
+        size={'large'}
+        style={{
+          width: '100%',
+        }}
+        onChange={onChange}
+        disabledDate={disabledDates}
+      />
     </Space>
   );
 };
